@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace ExchngeLoaderConsole
 {
@@ -8,8 +9,8 @@ namespace ExchngeLoaderConsole
         {
             var servise = new CnbApiClient.CnbService(
                 new Uri("https://www.cnb.cz/en/financial_markets/foreign_exchange_market/exchange_rate_fixing"));
-            var ans = servise.GetRawCurrecyByYear(2018);
-            Console.WriteLine(ans);
+            var ans = servise.GetRawCurrencyByYear(2018);
+            ans.ToList().ForEach(Console.WriteLine);
             Console.ReadLine();
         }
     }

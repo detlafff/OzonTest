@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using RestSharp;
 
 namespace CnbApiClient
 {
     public class CnbService 
     {
-        private IRestClient restClient;
-        private static string YearExchangeSegmentUrl = "year.txt";
+        private readonly IRestClient _restClient;
+        private const string YearExchangeSegmentUrl = "year.txt";
+        private const string DailyExchangeSegmentUrl = "daily.txt";
 
         public CnbService(Uri uri)
         {
-            restClient = new RestClient(uri);
+            _restClient = new RestClient(uri);
         }
 
-        public string[] GetRawCurrecyByYear(int year)
+        public string[] GetRawCurrencyByYear(int year)
         {
             var request = new RestRequest(YearExchangeSegmentUrl)
             {
@@ -23,9 +23,25 @@ namespace CnbApiClient
 
             request.AddParameter("year", year, ParameterType.QueryString);
 
-            var response = restClient.Execute(request);
+            var response = _restClient.Execute(request);
 
             return response.Content.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
         }
+
+        public string[] GetRawDailyCurrencyByDate(DateTime date)
+        {
+            var request = new RestRequest(DailyExchangeSegmentUrl)
+            {
+                Method =  Method.GET
+            };
+
+            request.AddParameter("date", date.ToString("dd.MM.yyyy"), ParameterType.QueryString);
+
+            var response = _restClient.Execute(request);
+
+            return response.Content.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        
     }
 }
