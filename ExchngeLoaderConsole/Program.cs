@@ -13,5 +13,21 @@ namespace ExchngeLoaderConsole
             ans.ToList().ForEach(Console.WriteLine);
             Console.ReadLine();
         }
+
+        //private static void AutoMapperConfigure()
+        //{
+        //    AutoMapper.Mapper.Initialize(cfg =>
+        //    {
+        //        cfg.AddProfile<WebApiProfile>();
+        //    });
+        //}
+
+        //public class WebApiProfile : Profile
+        //{
+        //    public WebApiProfile()
+        //    {
+        // 
+        //    }
+        //}
     }
 }
