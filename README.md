@@ -58,3 +58,13 @@ Week periods:
 
 Используемые технологии: .net core, entity framework. По остальным технологиям, которые могут понадобиться для выполнения задания - на ваш выбор.
 
+
+Запросы к веб апи 
+JSON
+curl -X GET \
+  'https://localhost:5001/api/v1/Report/Json/?year=2019&month=1' \
+ 
+TXT
+curl -X GET \
+  'https://localhost:5001/api/v1/Report/txt/?year=2019&month=1' \
+  
