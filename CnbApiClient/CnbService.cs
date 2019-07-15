@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Net;
+using System.Threading.Tasks;
+using CoreLibrary.Exception;
 using RestSharp;
 
 namespace CnbApiClient
@@ -14,7 +17,7 @@ namespace CnbApiClient
             _restClient = new RestClient(uri);
         }
 
-        public string[] GetRawCurrencyByYear(int year)
+        public async  Task<string[]> GetRawCurrencyByYear(int year)
         {
             var request = new RestRequest(YearExchangeSegmentUrl)
             {
@@ -23,12 +26,15 @@ namespace CnbApiClient
 
             request.AddParameter("year", year, ParameterType.QueryString);
 
-            var response = _restClient.Execute(request);
+            var response = await _restClient.ExecuteGetTaskAsync<IRestResponse>(request);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new CnbServiceRequestException($"Error on get yearly data {year} from CnbService.\nHttpStatus {response.StatusCode} Content {response.Content}");
 
             return response.Content.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
         }
 
-        public string[] GetRawDailyCurrencyByDate(DateTime date)
+        public async Task<string[]> GetRawDailyCurrencyByDate(DateTime date)
         {
             var request = new RestRequest(DailyExchangeSegmentUrl)
             {
@@ -37,7 +43,10 @@ namespace CnbApiClient
 
             request.AddParameter("date", date.ToString("dd.MM.yyyy"), ParameterType.QueryString);
 
-            var response = _restClient.Execute(request);
+            var response = await _restClient.ExecuteGetTaskAsync<IRestResponse>(request);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new CnbServiceRequestException($"Error on get daily data {date:d} from CnbService.\nHttpStatus {response.StatusCode} Content {response.Content}");
 
             return response.Content.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
         }

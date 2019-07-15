@@ -1,4 +1,5 @@
-﻿using DataBaseModel.Entities;
+﻿using System.Collections.Generic;
+using CoreLibrary.BusinessEntities;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataBaseModel
@@ -21,10 +22,10 @@ namespace DataBaseModel
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var config = modelBuilder.Entity<ExchangeRate>()
-                .ToTable("blogs"); ;
+            var config = modelBuilder.Entity<ExchangeRate>();
 
-            config.ToTable("ExchangeRate", "dbo")
+
+            config.ToTable("ExchangeRates", "dbo")
                 .HasKey(k => k.Id);
 
             config
@@ -51,10 +52,19 @@ namespace DataBaseModel
 
             config.Property(p => p.Date)
                 .HasColumnName("Date")
-                .HasColumnType("datetime2")
+                .HasColumnType("date")
                 .IsRequired();
+
+            config.Property(p => p.CreateDate)
+                .HasColumnName("CreateDate")
+                .HasColumnType("DATETIME")
+                .HasDefaultValueSql("getdate()")
+                .IsRequired();
+
+            config.Property(p => p.UpdateDate)
+                .HasColumnName("UpdateDate")
+                .HasColumnType("DATETIME")
+                .IsRequired(false);
         }
     }
-
-    
 }

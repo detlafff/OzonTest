@@ -1,17 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
-namespace DataBaseModel.Entities
+namespace CoreLibrary.BusinessEntities
 {
-    public class ExchangeRate
-    {
-        public int Id { get; set; }
-        public int Amount { get; set; }
-        public Currencies Currency { get; set; }
-        public decimal Rate { get; set; }
-        public DateTime Date { get; set; }
-    }
-
     public enum Currencies
     {
         [Description("Australia dollar")]

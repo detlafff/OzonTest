@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.757
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchngeLoaderConsole", "ExchngeLoaderConsole\ExchngeLoaderConsole.csproj", "{9EB8A2B9-170D-4ED1-8F6C-DC9A359B223B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeLoaderConsole", "ExchngeLoaderConsole\ExchangeLoaderConsole.csproj", "{9EB8A2B9-170D-4ED1-8F6C-DC9A359B223B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B8748838-2C46-4533-8705-3FEBA9E51569} = {B8748838-2C46-4533-8705-3FEBA9E51569}
 	EndProjectSection
@@ -12,9 +12,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CnbApiClient", "CnbApiClien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CurrentExchangeLoaderScheduler", "CurentExchangeLoaderScheduler\CurrentExchangeLoaderScheduler.csproj", "{3373BD59-0D42-4577-820F-FA834DA2CC35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBaseModel", "DataBaseModel\DataBaseModel.csproj", "{8371AAFA-C1BC-4A95-A121-F52A359CEFD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseModel", "DataBaseModel\DataBaseModel.csproj", "{8371AAFA-C1BC-4A95-A121-F52A359CEFD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeReportWebApi", "ExchangeReportWebApi\ExchangeReportWebApi.csproj", "{AB7D396F-722A-441F-A053-7269345D7CC7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{4EAF5023-5CB2-4C3D-B25A-B223BB32E05E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreLibrary", "CoreLibrary\CoreLibrary.csproj", "{B67C3E81-8CED-473E-AC09-725503C918B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebReportApplication", "WebReportApplication\WebReportApplication.csproj", "{CCB0E602-9C95-4B88-9645-A08718D0DA7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,13 +42,22 @@ Global
 		{8371AAFA-C1BC-4A95-A121-F52A359CEFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8371AAFA-C1BC-4A95-A121-F52A359CEFD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8371AAFA-C1BC-4A95-A121-F52A359CEFD9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB7D396F-722A-441F-A053-7269345D7CC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB7D396F-722A-441F-A053-7269345D7CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB7D396F-722A-441F-A053-7269345D7CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB7D396F-722A-441F-A053-7269345D7CC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B67C3E81-8CED-473E-AC09-725503C918B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B67C3E81-8CED-473E-AC09-725503C918B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B67C3E81-8CED-473E-AC09-725503C918B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B67C3E81-8CED-473E-AC09-725503C918B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB0E602-9C95-4B88-9645-A08718D0DA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB0E602-9C95-4B88-9645-A08718D0DA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB0E602-9C95-4B88-9645-A08718D0DA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB0E602-9C95-4B88-9645-A08718D0DA7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B8748838-2C46-4533-8705-3FEBA9E51569} = {4EAF5023-5CB2-4C3D-B25A-B223BB32E05E}
+		{8371AAFA-C1BC-4A95-A121-F52A359CEFD9} = {4EAF5023-5CB2-4C3D-B25A-B223BB32E05E}
+		{B67C3E81-8CED-473E-AC09-725503C918B0} = {4EAF5023-5CB2-4C3D-B25A-B223BB32E05E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7ABD2B61-8A26-4F0F-A25F-89A21E015412}
